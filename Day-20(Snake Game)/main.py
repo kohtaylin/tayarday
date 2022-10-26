@@ -22,7 +22,4 @@ while game_on:
     snake.move()
 
 
-
-
-
 screen.exitonclick()
