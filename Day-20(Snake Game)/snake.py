@@ -17,11 +17,29 @@ class Snake:
 
     def create_snake(self):
         for position in START_POSITION:
-            new_segment = Turtle("square")
-            new_segment.color("White")
-            new_segment.penup()
-            new_segment.goto(position)
-            self.segments.append(new_segment)
+            self.add_segment(position)
+
+    def add_segment(self, position):
+        """create a segment at defined position"""
+        new_segment = Turtle("square")
+        new_segment.color("White")
+        new_segment.penup()
+        new_segment.goto(position)
+        self.segments.append(new_segment)
+
+    def extend_snake(self):
+        """add a new segment to its tail"""
+        new_x = self.segments[-1].xcor()
+        new_y = self.segments[-1].ycor()
+        new_positon = (new_x, new_y)
+        self.add_segment(new_positon)
+
+    def bite_itself(self):
+        """return False or True if snake head touches any of its segments"""
+        for segment in self.segments[1:]:
+            if self.head.distance(segment) <= 15:
+                return True
+        return False
 
     def move(self):
         for i in range(len(self.segments) - 1, 0, -1):

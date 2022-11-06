@@ -11,6 +11,6 @@ class Food(Turtle):
         self.clear()
         self.shape("circle")
         self.penup()
-        self.turtlesize(stretch_wid=1, stretch_len=1)
+        self.turtlesize(stretch_wid=0.5, stretch_len=0.5)
         self.color("blue")
         self.goto(random.randint(-270, 270), random.randint(-270, 270))

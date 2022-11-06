@@ -29,16 +29,18 @@ while game_on:
     snake_head_y = snake.head.ycor()
     if food.distance(snake_head_x, snake_head_y) <= 15:
         food.refresh()
+        snake.extend_snake()
         score.new_score += 1
         score.update_score()
 
     # Colliding the snake head with the wall
-    if snake_head_x <= -280 or snake_head_x >= 280 or snake_head_y <= -280 or snake_head_y >= 280:
+    if snake_head_x < -290 or snake_head_x > 290 or snake_head_y < -290 or snake_head_y > 290:
         game_on = False
         score.game_over()
 
     # Colliding the snake head with its tail
-
-
+    if snake.bite_itself():
+        game_on = False
+        score.game_over()
 
 screen.exitonclick()
