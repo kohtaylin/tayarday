@@ -3,6 +3,7 @@ from turtle import Turtle
 ALIGNMENT = "center"
 FONT = ('Arial', 18, 'bold')
 
+
 class ScoreBoard(Turtle):
 
     def __init__(self, position):
@@ -18,3 +19,4 @@ class ScoreBoard(Turtle):
         self.penup()
         self.goto(self.position)
         self.write(arg=self.score, move=False, align=ALIGNMENT, font=FONT)
+

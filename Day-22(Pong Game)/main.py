@@ -39,16 +39,19 @@ while game_on:
         ball.step_y *= -1
 
     # bounce against paddle
-    if left_paddle.xcor() - ball.xcor() > -20 and left_paddle.distance(ball) < 30:
-        ball.step_x *= -1
+    if ball.xcor() > -470 and left_paddle.distance(ball) < 30:
+        if ball.step_x < 0:
+            ball.step_x *= -1
         left_paddle_hit_ball = True
+
     if left_paddle_hit_ball and ball.xcor() > 0:
         left_score.score += 1
         left_score.update()
         left_paddle_hit_ball = False
 
-    if right_paddle.xcor() - ball.xcor() < 20 and right_paddle.distance(ball) < 30:
-        ball.step_x *= -1
+    if ball.xcor() < 470 and right_paddle.distance(ball) < 30:
+        if ball.step_x > 0:
+            ball.step_x *= -1
         right_paddle_hit_ball = True
 
     if right_paddle_hit_ball and ball.xcor() < 0:
@@ -59,5 +62,19 @@ while game_on:
     # game over if ball passed paddle
     if ball.xcor() - left_paddle.xcor() < -25 or ball.xcor() - right_paddle.xcor() > 25:
         game_on = False
+        if left_score.score == right_score.score:
+            result = "Draw"
+        elif left_score.score > right_score.score:
+            result = "LEFT PLAYER WON."
+        else:
+            result = "RIGHT PLAYER WON."
+
+        middle_line.wirte_result(result)
+        if result != "Draw":
+            if result == "LEFT PLAYER WON.":
+                crown_position = -250
+            else:
+                crown_position = 250
+            middle_line.crown(crown_position)
 
 screen.exitonclick()
