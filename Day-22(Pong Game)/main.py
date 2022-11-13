@@ -42,6 +42,7 @@ while game_on:
     if ball.xcor() > -470 and left_paddle.distance(ball) < 30:
         if ball.step_x < 0:
             ball.step_x *= -1
+            ball.speed_up()
         left_paddle_hit_ball = True
 
     if left_paddle_hit_ball and ball.xcor() > 0:

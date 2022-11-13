@@ -21,3 +21,7 @@ class Ball(Turtle):
         self.x += self.step_x
         self.y += self.step_y
         self.goto(self.x, self.y)
+
+    def speed_up(self):
+        self.step_x *= 1.2
+        self.step_y *= 1.2
