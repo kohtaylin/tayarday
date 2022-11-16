@@ -23,15 +23,16 @@ while game_on:
     screen.update()
     the_cars.driving()
 
-    # if the turtle reaches the top, add score and restart from bottom
+    # if the turtle reaches the top, level up and restart from bottom, car speed faster
     if my_turtle.ycor() > 290:
         player_score.score += 1
         player_score.update()
         my_turtle.reposition()
+        the_cars.car_speed += 0.1
 
     # if car hit the turtle, game over
     for car in the_cars.cars:
-        if abs(car.ycor() - my_turtle.ycor()) < 10 and abs(car.xcor() - my_turtle.xcor()) < 30:
+        if abs(car.ycor() - my_turtle.ycor()) < 15 and abs(car.xcor() - my_turtle.xcor()) < 20:
             player_score.update()
             player_score.game_over()
             game_on = False

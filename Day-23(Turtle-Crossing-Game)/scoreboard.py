@@ -10,14 +10,14 @@ class Score(Turtle):
     def __init__(self):
         super().__init__()
         self.hideturtle()
-        self.score = 0
+        self.score = 1
         self.update()
 
     def update(self):
         self.penup()
         self.clear()
-        self.goto(0, 260)
-        self.write(arg=f"Score: {self.score}", align=ALIGNMENT, font=FONT)
+        self.goto(-400, 260)
+        self.write(arg=f"Level: {self.score}", align=ALIGNMENT, font=FONT)
 
     def game_over(self):
         self.home()
