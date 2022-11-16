@@ -22,12 +22,14 @@ game_on = True
 while game_on:
     screen.update()
     the_cars.driving()
+
+    # if the turtle reaches the top, add score and restart from bottom
     if my_turtle.ycor() > 290:
         player_score.score += 1
         player_score.update()
         my_turtle.reposition()
 
-    # car hit turtle
+    # if car hit the turtle, game over
     for car in the_cars.cars:
         if abs(car.ycor() - my_turtle.ycor()) < 10 and abs(car.xcor() - my_turtle.xcor()) < 30:
             player_score.update()

@@ -11,7 +11,7 @@ class Car:
     def __init__(self):
         self.cars = []
         self.create()
-        self.speed = 0.5
+        self.speed = 0.6
 
     def create(self):
         for i in YPOSITION:
