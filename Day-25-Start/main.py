@@ -15,7 +15,7 @@
 import pandas
 
 
-data = pandas.read_csv("weather_data.csv")
+# data = pandas.read_csv("weather_data.csv")
 # print(data["temp"])
 #
 # data_dict = data.to_dict()
@@ -55,10 +55,30 @@ data = pandas.read_csv("weather_data.csv")
 
 # Create a dataframe from scratch
 
-dat_dict = {
-    "students": ["Htay", "Lin", "Aung"],
-    "score": [60, 70, 80]
+# dat_dict = {
+#     "students": ["Htay", "Lin", "Aung"],
+#     "score": [60, 70, 80]
+# }
+#
+# dat = pandas.DataFrame(dat_dict)
+# dat.to_csv("new_dat.csv")
+
+data = pandas.read_csv("2018_Central_Park_Squirrel_Census_-_Squirrel_Data.csv")
+# data_series = data["Primary Fur Color"]
+# print(len(data_series))
+gray = data[data["Primary Fur Color"] == "Gray"]
+gray_count = len(gray)
+
+red = data[data["Primary Fur Color"] == "Cinnamon"]
+red_count = len(red)
+
+black = data[data["Primary Fur Color"] == "Black"]
+black_count = len(black)
+
+data_dict = {
+    "Fur Color": ["grey", "red", "black"],
+    "Count": [gray_count, red_count, black_count]
 }
 
-dat = pandas.DataFrame(dat_dict)
-dat.to_csv("new_dat.csv")
+squirrel_count = pandas.DataFrame(data_dict)
+squirrel_count.to_csv("squirrel_count.csv")
