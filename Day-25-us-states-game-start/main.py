@@ -35,10 +35,3 @@ while score < 50:
             writer.goto(x, y)
             writer.write(arg=answer_state)
             score += 1
-
-
-
-
-
-
-# screen.exitonclick()
